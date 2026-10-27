@@ -1,0 +1,32 @@
+
+services:
+  backend-a:
+    build:
+      context: .
+      args:
+        SERVICE: backend
+    command: ["-name=Backend A", "-port=8081"]
+
+  backend-b:
+    build:
+      context: .
+      args:
+        SERVICE: backend
+    command: ["-name=Backend B", "-port=8082"]
+
+  balancer:
+    build:
+      context: .
+      args:
+        SERVICE: balancer
+
+    environment:
+      BACKENDS: http://backend-a:8081,http://backend-b:8082
+      PORT: "8080"
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - backend-a
+      - backend-b
