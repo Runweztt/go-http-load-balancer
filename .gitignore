@@ -1,0 +1,38 @@
+# Go compiled binaries
+/bin/
+*.exe
+*.test
+*.out
+
+# Go coverage and profiling
+coverage/
+coverage.txt
+coverage.out
+*.prof
+cpu.prof
+mem.prof
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+/tmp/
+*.tmp
+.DS_Store
+
+# Local build artifacts
+/build/
+/dist/
+
+# Local Docker overrides
+compose.override.yaml
+docker-compose.override.yml
